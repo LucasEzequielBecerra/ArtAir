@@ -1,0 +1,139 @@
+
+
+
+.item-detail{
+    border-bottom: 2px dotted #cecece;
+    margin-bottom: 50px;
+    padding-bottom: 50px;
+    margin-top: 50px;
+}
+
+.img-producto{
+    border-radius: 20%;
+}
+
+.container-title{
+    margin-top: 40px;
+    border-bottom: solid 1px #606060;
+    color: #178080;
+}
+.container-price{
+    margin-top: 20px;
+}
+
+.price{
+    font-weight: bolder;
+    font-size: larger;
+    color: #178080;
+}
+
+.container-add{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    min-height: 150px;
+    
+}
+
+@media (max-width:990px){
+.container-add{
+    align-items: center;
+}
+
+}
+
+.container-cart-button{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.quantity{
+    margin-bottom: 5px;
+    font-weight: bold;
+    
+    font-size: 18px;
+}
+
+.container-button{
+    margin-bottom:20px ;
+    width: 30%;
+}
+
+.container-button-to-cart{
+    text-align: center;
+    height: 100%;
+    margin-top: 100px;
+    
+}
+
+.button-to-cart {
+    
+	box-shadow:inset 0px 0px 0px 0px #ffffff;
+	background:linear-gradient(to bottom, #f9f9f9 5%, #e9e9e9 100%);
+	background-color:#f9f9f9;
+	border-radius:10px;
+	border:2px solid #dcdcdc;
+	display:inline-block;
+	cursor:pointer;
+	color:#666666;
+	font-family:Arial;
+	font-size:20px;
+	font-weight:bold;
+	padding:6px 30px;
+	text-decoration:none;
+	text-shadow:0px 5px 0px #ffffff;
+}
+.button-to-cart:hover {
+	background:linear-gradient(to bottom, #e9e9e9 5%, #f9f9f9 100%);
+	background-color:#e9e9e9;
+}
+.button-to-cart:active {
+	position:relative;
+	top:1px;
+}
+
+.cart-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    border: 2px solid #178080;
+    background-color: #fff;
+    margin-top: 150px;
+    font-size: 18px;
+    color: #000;
+    transition: 500ms;
+    width: 100%;
+}
+
+.cart-button:hover{
+    background-color: #7fd8d8;
+    color: #fff;
+    transition: 500ms;
+}
+
+.cart-icon{
+    font-size: 20px;
+}
+
+.link-fav{
+    color: #606060;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 13px;
+
+}
+
+.link-fav:hover{
+color: #178080;
+}
+
+.container-description{
+    margin-top: 20px;
+    background-color: #f3f3f3;
+    color: #606060;
+    display: flex;
+    
+}

@@ -1,0 +1,70 @@
+.header{
+    background-color: #7fd8d8;
+    
+    
+}
+body{
+    background-color: #f2f2f2;
+}
+
+.container-cart.btn.btn-outline-success.me-2.cart {
+    min-height: 39px;
+}
+
+
+.cart{
+    display: flex;
+}
+
+.cart-icon{
+    padding-right: 5px;
+}
+
+.cart-number{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #f2f2f2;
+    margin-bottom: 0;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius:  45%;
+    background-color: #178080;
+    width: 25px;
+    height: 25px;
+    font-weight: 700;
+    
+}
+
+
+.nav-top{
+    
+    padding-bottom: 10px;
+}
+.nav-bot{
+    margin: top 2px;
+    
+}
+
+.img-logo{
+    height: 50px;
+    
+}
+
+.link-item{
+    color: aliceblue;
+    letter-spacing: 2px;
+    margin-left: 30px;
+}
+
+.btn-outline-success{
+    border: solid 1px #178080;
+    color: #178080;
+}
+
+.btn-outline-success:hover{
+    background-color: #178080;
+}
+
+.navbar-nav a{
+    text-decoration: none;
+}

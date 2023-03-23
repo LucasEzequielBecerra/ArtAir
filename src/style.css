@@ -1,0 +1,31 @@
+*{
+    /* color para texto */
+    color: #f3f3f3;
+    /* color para fondo */
+    color: #f2f2f2;
+    /* color para letra blanca */
+    color: #fff;
+    /* color para letra apagada */
+    color: #606060;
+    /* color letra negra */
+    color: #000;
+    /* color principal */
+    color: #7fd8d8;
+    /* color detalles */
+    color: #178080;
+
+}
+
+/*  // async function leerDatos() {
+    //     try {
+    //         let respuesta = await obtenerProductos()
+    //         setProductos(respuesta)
+    //     }
+    //     catch (error) {
+    //         alert(error)
+    //     }
+    //     finally {
+    //         setLoading(false)
+    //     }
+    // }
+ */
