@@ -1,15 +1,18 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
 import BasicExample from './components/NavBar/NavBar';
-import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import ItemListContainer from './Routes/ItemListContainer/ItemListContainer';
+import ItemDetailContainer from './Routes/ItemDetailContainer/ItemDetailContainer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import NotFound from './pages/NotFound';
+import NotFound from './NotFound/NotFound';
 import { CartContextProvider } from './context/cartContext';
-import CartContainer from './components/CartContainer/CartContainer';
+import CartContainer from './Routes/CartContainer/CartContainer';
 import Footer from './components/Footer/Footer';
-import Home from './components/Home/Home';
-import Section from './components/Section/Section'
+import Home from './Routes/Home/Home';
+import Section from './Routes/Section/Section'
+import CheckoutForm from './Routes/CartCheckout/CheckoutForm';
+import CheckoutCart from './Routes/CartCheckout/CheckoutCart';
 
 
 function App() {
@@ -26,6 +29,7 @@ function App() {
             <BasicExample />
             <Routes>
 
+              <Route path='/checkout' element={<CheckoutCart />} />
               <Route path='/' element={<Home />} />
               <Route path='/new' element={<Section sectionName='Novedades' />} />
               <Route path='/offer' element={<Section sectionName='Ofertas' />} />

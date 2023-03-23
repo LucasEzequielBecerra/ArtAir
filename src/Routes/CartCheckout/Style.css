@@ -1,0 +1,93 @@
+.container-form-checkout{
+    min-height: 750px;
+    width: 85% ;
+    margin: 0 auto;
+    padding-top: 100px;
+    display: flex;
+
+}
+
+.container-user-data{
+    width: 70%;
+    background-color: aliceblue;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container-title{
+    border-bottom: soid 1px #000 ;
+    margin: 20px;
+}
+
+
+.container-form{
+    width:60%
+}
+
+.cart-checkout{
+    width: 100%;
+    margin: 0 auto;
+}
+
+.name-surname{
+    justify-content: space-between;
+    display: flex;
+    width: 100%
+}
+
+
+.input{
+flex-direction: column;
+display: flex;
+margin-top: 20px;
+}
+
+
+.btn{
+    margin-top: 20px;
+}
+
+.subtotal-title{
+    font-size: 20px;
+    font-style: oblique;
+}
+
+.subtotal-number{
+    font-size: 20px;
+    font-weight: 900;
+    color: #3d768a;
+}
+
+.finalize-purchase{
+    width: 100%;
+}
+.btn-purchase {
+    width: 100%;
+	box-shadow: 0px 5px 12px -9px #276873;
+	background-color:#7fd8d8;
+	border-radius:8px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:20px;
+	font-weight:bold;
+	padding:13px 32px;
+	text-decoration:none;
+	text-shadow:2px 1px 11px #3d768a;
+}
+.btn-purchase:hover {
+	background:linear-gradient(to bottom, #7fd8d8 5%, #178080 100%);
+	background-color:#7fd8d8;
+    color: #fff;
+}
+.btn-purchase:active {
+	position:relative;
+	top:1px;
+}
+
+.keep-buying{
+    margin-top: 20px;
+}
+

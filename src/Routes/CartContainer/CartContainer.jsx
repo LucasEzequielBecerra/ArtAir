@@ -10,18 +10,15 @@ const CartContainer = () => {
 
 
     const { cart } = useContext(cartContext)
-    const [inCart, setInCart] = useState([])
 
     const { removeItem, clearCart } = useContext(cartContext)
 
-    useEffect(() => {
-        setInCart(cart)
-    }, [removeItem])
+    
 
     function totalPrice() {
         let finalPrice = 0;
 
-        inCart.forEach((prod) => {
+        cart.forEach((prod) => {
             finalPrice += prod.quantity * prod.price
         })
         return finalPrice
@@ -30,7 +27,7 @@ const CartContainer = () => {
 
     return (
 
-        inCart.length === 0 ?
+        cart.length === 0 ?
             <div className=' back'>
 
                 <div className='container-back-to-commerce'>
@@ -52,7 +49,7 @@ const CartContainer = () => {
                     </div>
 
 
-                    {inCart.map((prod) => <Cart key={prod.id} prod={prod} removeItem={removeItem} />)}
+                    {cart.map((prod) => <Cart key={prod.id} prod={prod} removeItem={removeItem} />)}
 
                     <div className='total-container'>
                         <div className='total'>
@@ -61,7 +58,7 @@ const CartContainer = () => {
                                 <span className='subtotal-title'>Subtotal</span>
                                 <span className='subtotal-number'>{totalPrice().toFixed(2)}</span>
                             </div>
-                            <div className='finalize-purchase'> <Link to='/' className='btn-purchase'>Finalizar Compra</Link> </div>
+                            <div className='finalize-purchase'> <Link to='/checkout' className='btn-purchase'>Finalizar Compra</Link> </div>
                             <Link to='/' className='keep-buying'> Seguir comprando </Link>
                         </div>
                         <div className='clear-cart-container'>

@@ -5,9 +5,10 @@ import './Style.css';
 import { BsSearch } from "react-icons/bs";
 import { Link } from 'react-router-dom';
 
+
 function BasicExample() {
     return (
-        <nav className="navbar navbar-expand-lg bg-body-tertiary d-flex flex-column header">
+        <nav className="navbar navbar-expand-lg  d-flex flex-column header">
             <div className="container-fluid d-flex justify-content-around nav-top">
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>

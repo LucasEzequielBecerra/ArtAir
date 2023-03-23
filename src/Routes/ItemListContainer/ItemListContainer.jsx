@@ -6,7 +6,7 @@ import './Style.css'
 
 
 
-import Loader from '../Loader/Loader'
+import Loader from '../../components/Loader/Loader'
 
 
 

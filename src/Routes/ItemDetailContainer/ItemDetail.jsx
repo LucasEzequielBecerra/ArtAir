@@ -1,5 +1,5 @@
 import React from 'react'
-import Counter from '../Counter/Counter'
+import Counter from '../../components/Counter/Counter'
 import { BsHeart } from "react-icons/bs"
 import './Style.css'
 import { Link } from 'react-router-dom'

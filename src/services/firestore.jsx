@@ -1,4 +1,4 @@
-import { collection, getDocs, query, where, doc, getDoc } from "firebase/firestore";
+import { collection, getDocs, query, where, doc, getDoc, addDoc } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
@@ -33,7 +33,7 @@ export async function getProductsByCategoryFromDataBase(categoryURL) {
     const dataProducts = documents.map((doc) => ({ ...doc.data(), id: doc.id }));
     return dataProducts;
 }
-export async function getNewProductsFromDataBase(categoryURL) {
+export async function getNewProductsFromDataBase() {
     const productsColectionRef = collection(db, "products");
 
     const q = query(productsColectionRef, where("new", "==", true));
@@ -43,7 +43,7 @@ export async function getNewProductsFromDataBase(categoryURL) {
     const dataProducts = documents.map((doc) => ({ ...doc.data(), id: doc.id }));
     return dataProducts;
 }
-export async function getOfferProductsFromDataBase(categoryURL) {
+export async function getOfferProductsFromDataBase() {
     const productsColectionRef = collection(db, "products");
 
     const q = query(productsColectionRef, where("offer", "==", true));
@@ -62,4 +62,15 @@ export async function getSingleProductFromDataBase(idItem) {
         throw new Error('no existe el documento')
     return { ...docSnapshot.data(), id: docSnapshot.id };
 
+}
+
+export async function createOrder(orderData) {
+    const collectionRef = collection(db, "orders");
+
+    console.log(orderData);
+
+    const response = await addDoc(collectionRef, orderData);
+    console.log("Orden creada correctamente", response.id);
+
+    return response.id;
 }

@@ -3,7 +3,7 @@ import ItemDetail from './ItemDetail'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import cartContext from '../../context/cartContext'
-import Loader from '../Loader/Loader'
+import Loader from '../../components/Loader/Loader'
 import { ToastContainer, toast } from 'react-toastify';
 import { getSingleProductFromDataBase } from '../../services/firestore'
 

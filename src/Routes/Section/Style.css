@@ -1,0 +1,13 @@
+.container-description-new{    
+    margin-top: 2em;
+    margin-bottom: 2em;
+    width: 90%;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+span{
+    color: #178080;
+    font-weight: 600;
+}
