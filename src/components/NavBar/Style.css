@@ -36,6 +36,13 @@ body{
     
 }
 
+div form{
+    align-items: flex-end;
+    
+}
+.form-control{
+    max-height: 40px;
+}
 
 .nav-top{
     
