@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import { json } from "react-router";
 
 const cartContext = createContext({
     cart: []
@@ -11,8 +12,9 @@ export function CartContextProvider(props) {
         const newCart = cart.filter(prod => prod.id !== item.id)
         newCart.push({ ...item, quantity: count })
         setCart(newCart)
-
+        
     }
+    
 
     function removeItem(itemId) { setCart(cart.filter(prod => prod.id !== itemId)) }
 

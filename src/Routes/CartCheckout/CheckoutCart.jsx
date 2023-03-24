@@ -7,9 +7,9 @@ import CheckoutForm from './CheckoutForm'
 function CheckoutCart( ) {
     const navigateTo = useNavigate()
 
-    async function handleCheckout(userData, cart, totalPrice) {
+    async function handleCheckout(userData, paymentData, cart, totalPrice) {
         const orderData = {
-            buyer: userData,
+            buyer: {userData,paymentData},
             items: cart,
             total: totalPrice,
             timestamp: new Date(),

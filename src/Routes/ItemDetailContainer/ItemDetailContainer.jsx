@@ -4,8 +4,9 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import cartContext from '../../context/cartContext'
 import Loader from '../../components/Loader/Loader'
-import { ToastContainer, toast } from 'react-toastify';
+
 import { getSingleProductFromDataBase } from '../../services/firestore'
+import Swal from 'sweetalert2'
 
 
 const ItemDetailContainer = ({ }) => {
@@ -18,6 +19,20 @@ const ItemDetailContainer = ({ }) => {
     const params = useParams();
     const idProduct = params.idProduct;
 
+    const alertBuy = (count) => {
+        Swal.fire({
+            icon: 'success',
+            text: `Se ha agregado ${count} item al carrito`,
+            target: '#custom-target',
+            timer: '1000',
+            showConfirmButton: false,
+            customClass: {
+                container: 'position-absolute'
+            },
+            toast: true,
+            position: 'top-right'
+        })
+    }
 
     async function elementFinded() {
         try {
@@ -41,9 +56,10 @@ const ItemDetailContainer = ({ }) => {
 
     function onAddToCart(count) {
 
-        alert(`Has agregado ${count} items al carrito`)
+
         setIsInCart(true)
         addItem(product, count)
+        alertBuy(count)
     }
 
     return (

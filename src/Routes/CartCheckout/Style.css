@@ -103,6 +103,7 @@ font-size: 20px;
     padding-left: 8px;
     max-height: 300px;
     overflow: auto;
+    margin-bottom: 0;
     
 }
 
@@ -157,7 +158,17 @@ font-size: 18px;
 margin-left: 20px;
 }
 
-.total-detail{
-    font-size: 20px;
+.disabled{
+    cursor: default;
+    opacity:0.5 ;
 }
+
+.total-detail{
+    text-align: center;
+    width: 90%;
+    font-size: 20px;
+    padding-top: 10px;
+    margin-top: 5px;
+}
+
 

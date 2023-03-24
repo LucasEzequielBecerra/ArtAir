@@ -10,65 +10,66 @@ function CheckoutForm(props) {
 
     const { cart } = useContext(cartContext)
 
-//     useEffect(()=>{
-// mostrarAlerta()
-//     }, [])
 
-    const mostrarAlerta = () =>{
+
+    const mostrarAlerta = () => {
         Swal.fire({
-            icon:'warning',
-            title:'¿Confirmar compra?',
-            text:'Estas a punto de realizar la compra',
+            icon: 'warning',
+            title: '¿Confirmar compra?',
+            text: 'Estas a punto de realizar la compra',
             confirmButtonText: 'Confirmar',
             denyButtonText: `Cancelar`,
-            showDenyButton:'true',
-            confirmButtonColor:'#178080'
-            
-        }).then(response=>{
-            if(response.isConfirmed){
+            showDenyButton: 'true',
+            confirmButtonColor: '#178080'
+
+        }).then(response => {
+            if (response.isConfirmed) {
                 submitData(cart, totalPrice())
                 Swal.fire({
-                    icon:"success",
-                    title:"Compra realizada",
-                    text:"Tu compra ha sido realizada, nos comunicaremos via mail",
-                    timer:3000,
-                    confirmButtonColor:'#178080'
-                    
+                    icon: "success",
+                    title: "Compra realizada",
+                    text: "Tu compra ha sido realizada, nos comunicaremos via mail",
+                    timer: 3000,
+                    confirmButtonColor: '#178080'
+
                 })
-            } else{
+            } else {
                 clearForm()
             }
         })
     }
 
-    const [orderData, setOrderData] = useState({
-        userData:
-        {
-            name: "",
-            email: "",
-            phone: "",
-            country: ""
-        },
-        paymentData:
-        {
-            name: "",
-            number: 0,
-            expDate: 0,
-            cvv: 0,
-        }
+    const [userData, setUserData] = useState({
+
+        fullName: "",
+        email: "",
+        phone: "",
+        country: ""
     });
+
+    const [paymentData, setPaymentData] = useState({
+
+        targetName: "",
+        numberCard: 0,
+        expDate: 0,
+        cvv: 0,
+    })
+
+    console.log(userData)
+
 
     function handleChange(evt) {
         const value = evt.target.value;
         const input = evt.target.name;
 
-        const newOrderData = { ...orderData }
-        newOrderData[input] = value;
-        console.log(newOrderData)
-        setOrderData(newOrderData)
-    }
+        const newUserData = { ...userData }
+        newUserData[input] = value;
+        setUserData(newUserData)
 
-    // console.log(orderData)
+        const newPaymentData = { ...paymentData }
+        newPaymentData[input] = value;
+        setPaymentData(newPaymentData)
+    }
 
     function clearForm() {
         setOrderData({
@@ -90,7 +91,7 @@ function CheckoutForm(props) {
     }
 
     function submitData(cart, totalPrice) {
-        props.onSubmit(orderData, cart, totalPrice)
+        props.onSubmit({userData}, {paymentData}, cart, totalPrice)
     }
 
     const totalPrice = () => {
@@ -115,19 +116,19 @@ function CheckoutForm(props) {
                             <label > Nombre completo </label>
                             <input
                                 type="text "
-                                value={orderData.userData.name}
-                                name="name"
+                                value={userData.fullName}
+                                name="fullName"
                                 required onChange={handleChange} />
                             <label >E-mail</label>
                             <input
-                                value={orderData.userData.email}
+                                value={userData.email}
                                 name="email"
                                 type="email"
                                 required
                                 onChange={handleChange} />
                             <label >Phone   </label>
                             <input
-                                value={orderData.userData.phone}
+                                value={userData.phone}
                                 name="phone"
                                 type="text"
                                 required
@@ -135,7 +136,7 @@ function CheckoutForm(props) {
 
                             <form>
                                 <label >Pais</label>
-                                <select value={orderData.userData.country} required onChange={handleChange} name="country">
+                                <select  value={userData.country} required onChange={handleChange} name="country">
                                     <option value="Afganistán">Afganistán</option>
                                     <option value="Albania">Albania</option>
                                     <option value="Alemania">Alemania</option>
@@ -339,21 +340,21 @@ function CheckoutForm(props) {
                             <label > Nombre en tarjeta </label>
                             <input
                                 type="text "
-                                value={orderData.paymentData.name}
-                                name="name"
+                                value={paymentData.targetName}
+                                name="targetName"
                                 required onChange={handleChange} />
                             <label > Numero de tarjeta </label>
                             <input
                                 type="number"
-                                value={orderData.paymentData.number}
-                                name="number"
+                                value={paymentData.numberCard}
+                                name="numberCard"
                                 required onChange={handleChange} />
                             <div className='row'>
                                 <div className='exp-cvv'>
                                     <label > Fecha de vencimiento </label>
                                     <input
                                         type="number"
-                                        value={orderData.paymentData.expDate}
+                                        value={paymentData.expDate}
                                         name="expDate"
                                         required onChange={handleChange} />
                                 </div>
@@ -361,7 +362,7 @@ function CheckoutForm(props) {
                                     <label > CVV </label>
                                     <input
                                         type="number"
-                                        value={orderData.paymentData.cvv}
+                                        value={paymentData.cvv}
                                         name="cvv"
                                         required onChange={handleChange} />
                                 </div>
@@ -369,13 +370,11 @@ function CheckoutForm(props) {
 
                             </div>
                         </div>
-
                     </div>
                     <div className='btn-confirm-container'>
-
-                    <button className={orderData === {} ? 'disabled' : 'btn-confirm '} onClick={() => mostrarAlerta()}>Continuar</button>
+                        <button className={totalPrice() < 1 || userData.fullName === '' ? 'disabled btn-confirm' : 'btn-confirm '}  disabled={totalPrice() < 1 || userData.fullName=== '' && true } onClick={() => mostrarAlerta()}>Continuar</button>
                     </div>
-                    
+
                 </div>
             </div>
             <div className='purchase-summary-container'>
@@ -392,7 +391,7 @@ function CheckoutForm(props) {
                             </div>
                         </li>)}
                     </ul>
-                    <div className='total-detail' >
+                    <div style={{borderTop: totalPrice() < 1 ? 'none':'solid 2px #6e6e6e'}} className='total-detail' >
                         <div>{totalPrice() < 1 ?
                             <div style={{ textAlign: 'center' }}>
                                 <p>No hay articulos cargados </p> <Link to='/'> <button className='back-to-commerce-btn'>Regresar a la tienda</button></Link>
@@ -410,30 +409,5 @@ function CheckoutForm(props) {
 
 
 
-{/* <div className='input-name input'>
-<label > Nombre completo </label>
-<input
-    type="text "
-    value={userData.name}
-    name="name"
-    required onChange={handleChange} />
-</div>                       
-<div className='input-email input'>
-    <label >E-mail</label>
-    <input
-        value={userData.email}
-        name="email"
-        type="email"
-        required
-        onChange={handleChange} />
-</div>
-<div className='input-phone input'>
-    <label >Phone   </label>
-    <input
-        value={userData.phone}
-        name="phone"
-        type="text"
-        required
-        onChange={handleChange} />
-</div> */}
+
 export default CheckoutForm

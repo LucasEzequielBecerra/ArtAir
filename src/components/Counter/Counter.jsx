@@ -6,6 +6,9 @@ import { BsCartCheckFill } from "react-icons/bs";
 
 
 function Counter({ initial, stock, onAddToCart }) {
+
+    
+
     const [count, setCount] = useState(initial)
 
     const increase = () => {
@@ -27,7 +30,7 @@ function Counter({ initial, stock, onAddToCart }) {
 
             </div>
             <div className='container-cart-button'>
-                <button onClick={() => onAddToCart(count)} className='cart-button'>AGREGAR    <i className='cart-icon'><BsCartCheckFill /></i> </button>
+                <button onClick={() => onAddToCart(count) } className='cart-button'>AGREGAR    <i className='cart-icon'><BsCartCheckFill /></i> </button>
             </div>
         </>
     )
