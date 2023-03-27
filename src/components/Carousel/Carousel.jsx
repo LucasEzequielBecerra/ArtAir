@@ -22,7 +22,7 @@ const Carousel = () => {
                 delay: 3000,
                 disableOnInteraction: false,
             }}
-            pagination={{ clickable: false}}
+            
 
 
         >

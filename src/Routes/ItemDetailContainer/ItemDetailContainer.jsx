@@ -56,9 +56,9 @@ const ItemDetailContainer = ({ }) => {
 
     function onAddToCart(count) {
 
-
         setIsInCart(true)
         addItem(product, count)
+        
         alertBuy(count)
     }
 

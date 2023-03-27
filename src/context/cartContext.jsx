@@ -6,19 +6,28 @@ const cartContext = createContext({
 })
 
 export function CartContextProvider(props) {
-    const [cart, setCart] = useState([])
+    const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')) || [])
 
     function addItem(item, count) {
         const newCart = cart.filter(prod => prod.id !== item.id)
         newCart.push({ ...item, quantity: count })
         setCart(newCart)
-        
+        localStorage.setItem('cart', JSON.stringify(newCart))
     }
     
 
-    function removeItem(itemId) { setCart(cart.filter(prod => prod.id !== itemId)) }
+    function removeItem(itemId) {
+        const newCart = cart.filter(prod => prod.id !== itemId)
+        setCart(newCart)
+        
+        localStorage.setItem('cart', JSON.stringify(newCart))
+        }
 
-    function clearCart() { setCart([]); }
+    function clearCart() { 
+        const newCart = []
+        setCart(newCart);
+        localStorage.setItem('cart', JSON.stringify(newCart))
+    }
 
     // function isInCart(itemId) { cart.find(prod => prod.id === itemId) ? true : false }
 
