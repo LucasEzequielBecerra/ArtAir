@@ -39,7 +39,7 @@ function BasicExample() {
                                 <li><Link to='/category/Atriles' className="dropdown-item">Atriles</Link></li>
                                 <li><Link to='/category/Acuarelas' className="dropdown-item">Acuarelas</Link></li>
 
-                                <li><Link to='/category/Acuarelas' className="dropdown-item">Lapices</Link></li>
+                                <li><Link to='/category/Lapices' className="dropdown-item">Lapices</Link></li>
                             </ul>
                         </li>
 
@@ -50,10 +50,9 @@ function BasicExample() {
                                 TECNICAS
                             </a>
                             <ul className="dropdown-menu">
-                                <li><a className="dropdown-item">Acuarela</a></li>
-                                <li><a className="dropdown-item">Oleo</a></li>
-
-                                <li><a className="dropdown-item">Acrilico</a></li>
+                                <li><Link to= '/category/Acuarelas'className="dropdown-item">Acuarela</Link></li>
+                                <li><Link to='/category/Oleos' className="dropdown-item">Oleo</Link></li>
+                                <li><Link to='/category/Acrilicos' className="dropdown-item">Acrilico</Link></li>
                             </ul>
                         </li>
                         <li className="nav-item">

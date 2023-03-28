@@ -14,7 +14,7 @@
 
 }
 
-.cart-title {}
+
 
 .head-container {
     border-bottom: 2px solid #e9e9e9;
@@ -30,7 +30,7 @@
 
 }
 
-.img-container {}
+
 
 .img-item {
     max-height: 150px
@@ -38,6 +38,8 @@
 
 .description-container {
     object-fit: cover;
+    display: flex;
+    align-items: center
 }
 
 .cart-product-title {

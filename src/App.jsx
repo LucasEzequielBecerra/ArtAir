@@ -11,8 +11,8 @@ import CartContainer from './Routes/CartContainer/CartContainer';
 import Footer from './components/Footer/Footer';
 import Home from './Routes/Home/Home';
 import Section from './Routes/Section/Section'
-import CheckoutForm from './Routes/CartCheckout/CheckoutForm';
 import CheckoutCart from './Routes/CartCheckout/CheckoutCart';
+import { exportDataWithBatch } from './services/firestore';
 
 
 function App() {
@@ -26,6 +26,7 @@ function App() {
         <CartContextProvider>
 
           <BrowserRouter>
+
             <BasicExample />
             <Routes>
 

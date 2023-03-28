@@ -18,7 +18,7 @@ const Item = ({ prod }) => {
                     </div>
                     <div className='contaniner-description   '>
 
-                        <p className='precio-prod'>${prod.price}</p>
+                        <p className='precio-prod'>{new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'USD' }).format(prod.price.toFixed(2))}</p>
                         <button className='button-prod'>AGREGAR <i className='cart-icon'><BsCartCheckFill /></i></button>
                     </div>
                 </Link >

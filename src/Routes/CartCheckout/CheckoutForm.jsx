@@ -34,7 +34,7 @@ function CheckoutForm(props) {
 
                 })
             } else {
-                clearForm()
+                // clearForm()
             }
         })
     }
@@ -59,36 +59,35 @@ function CheckoutForm(props) {
 
 
     function handleChange(evt) {
-        const value = evt.target.value;
-        const input = evt.target.name;
+        const {value, name} = evt.target;
 
         const newUserData = { ...userData }
-        newUserData[input] = value;
+        newUserData[name] = value;
         setUserData(newUserData)
 
         const newPaymentData = { ...paymentData }
-        newPaymentData[input] = value;
+        newPaymentData[name] = value;
         setPaymentData(newPaymentData)
     }
 
-    function clearForm() {
-        setOrderData({
-            userData:
-            {
-                name: "",
-                email: "",
-                phone: "",
-                country: ""
-            },
-            paymentData:
-            {
-                name: "",
-                number: 0,
-                expDate: 0,
-                cvv: 0,
-            }
-        });
-    }
+    // function clearForm() {
+    //     setOrderData({
+    //         userData:
+    //         {
+    //             name: "",
+    //             email: "",
+    //             phone: "",
+    //             country: ""
+    //         },
+    //         paymentData:
+    //         {
+    //             name: "",
+    //             number: 0,
+    //             expDate: 0,
+    //             cvv: 0,
+    //         }
+    //     });
+    // }
 
     function submitData(cart, totalPrice) {
         props.onSubmit({userData}, {paymentData}, cart, totalPrice)

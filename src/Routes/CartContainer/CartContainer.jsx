@@ -56,7 +56,7 @@ const CartContainer = () => {
 
                             <div className='subtotal'>
                                 <span className='subtotal-title'>Subtotal</span>
-                                <span className='subtotal-number'>{totalPrice().toFixed(2)}</span>
+                                <span className='subtotal-number'>{new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'USD' }).format(totalPrice().toFixed(2))}</span>
                             </div>
                             <div className='finalize-purchase'> <Link to='/checkout' className='btn-purchase'>Finalizar Compra</Link> </div>
                             <Link to='/' className='keep-buying'> Seguir comprando </Link>
