@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import './Style.css'
 import cartContext from '../../context/cartContext'
+import { Link } from 'react-router-dom'
 
 
 const Cart = ({ prod, clearCart, removeItem }) => {
@@ -17,7 +18,7 @@ const Cart = ({ prod, clearCart, removeItem }) => {
                 <div className='row'>
                     <div className='img-container col-2'><img src={prod.img} alt={prod.title} className="img-item" /></div>
                     <div className='description-container col-10'>
-                        <div className='cart-product-title'>{prod.title}</div>
+                        <Link to={`/product/${prod.id}`} className='cart-product-title'>{prod.title}</Link>
                     </div>
 
                 </div>

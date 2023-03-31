@@ -4,7 +4,7 @@ import { getFirestore } from "firebase/firestore";
 import { products } from "../products/Products";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDPEeXMx3KhdZWrVFEOcAgQslx4Os4oJAU",
+    apiKey:"AIzaSyDPEeXMx3KhdZWrVFEOcAgQslx4Os4oJAU",
     authDomain: "artair-5c520.firebaseapp.com",
     projectId: "artair-5c520",
     storageBucket: "artair-5c520.appspot.com",
