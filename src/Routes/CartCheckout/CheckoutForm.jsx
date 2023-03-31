@@ -1,15 +1,28 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import cartContext from '../../context/cartContext';
+import { clearForm, validateForm, totalPrice } from './functionsForm';
 import './Style.css'
 
 
 
 function CheckoutForm(props) {
 
-    const { cart } = useContext(cartContext)
+    const { cart, clearCart } = useContext(cartContext)
 
+    const [errors, setErrors] = useState({})
+    const [userData, setUserData] = useState(
+        {
+            fullName: "",
+            email: "",
+            phone: "",
+            country: "",
+            targetName: "",
+            numberCard: "",
+            expDate: "",
+            cvv: "",
+        });
 
 
     const mostrarAlerta = () => {
@@ -24,7 +37,7 @@ function CheckoutForm(props) {
 
         }).then(response => {
             if (response.isConfirmed) {
-                submitData(cart, totalPrice())
+                submitData(cart, totalPrice(cart))
                 Swal.fire({
                     icon: "success",
                     title: "Compra realizada",
@@ -34,73 +47,28 @@ function CheckoutForm(props) {
 
                 })
             } else {
-                // clearForm()
+                clearForm(setUserData)
             }
         })
     }
 
-    const [userData, setUserData] = useState({
-
-        fullName: "",
-        email: "",
-        phone: "",
-        country: ""
-    });
-
-    const [paymentData, setPaymentData] = useState({
-
-        targetName: "",
-        numberCard: 0,
-        expDate: 0,
-        cvv: 0,
-    })
-
-    console.log(userData)
-
-
     function handleChange(evt) {
-        const {value, name} = evt.target;
+        const { value, name } = evt.target;
 
-        const newUserData = { ...userData }
-        newUserData[name] = value;
-        setUserData(newUserData)
-
-        const newPaymentData = { ...paymentData }
-        newPaymentData[name] = value;
-        setPaymentData(newPaymentData)
+        const newuserData = { ...userData }
+        newuserData[name] = value;
+        setUserData(newuserData)
+        setErrors(validateForm(newuserData))
     }
-
-    // function clearForm() {
-    //     setOrderData({
-    //         userData:
-    //         {
-    //             name: "",
-    //             email: "",
-    //             phone: "",
-    //             country: ""
-    //         },
-    //         paymentData:
-    //         {
-    //             name: "",
-    //             number: 0,
-    //             expDate: 0,
-    //             cvv: 0,
-    //         }
-    //     });
-    // }
 
     function submitData(cart, totalPrice) {
-        props.onSubmit({userData}, {paymentData}, cart, totalPrice)
+
+        props.onSubmitData(userData, cart, totalPrice)
+        clearCart()
+
     }
 
-    const totalPrice = () => {
-        let finalPrice = 0;
 
-        cart.forEach((prod) => {
-            finalPrice += prod.quantity * prod.price
-        })
-        return finalPrice.toFixed(2)
-    }
 
     return (
         <div className='container-form-checkout'>
@@ -118,6 +86,7 @@ function CheckoutForm(props) {
                                 value={userData.fullName}
                                 name="fullName"
                                 required onChange={handleChange} />
+                            {errors.fullName && <p className='errors-msg'>{errors.fullName}</p>}
                             <label >E-mail</label>
                             <input
                                 value={userData.email}
@@ -125,17 +94,19 @@ function CheckoutForm(props) {
                                 type="email"
                                 required
                                 onChange={handleChange} />
-                            <label >Phone   </label>
+                            {errors.email && <p className='errors-msg'>{errors.email}</p>}
+                            <label>Telefono</label>
                             <input
                                 value={userData.phone}
                                 name="phone"
                                 type="text"
                                 required
                                 onChange={handleChange} />
+                            {errors.phone && <p className='errors-msg'>{errors.phone}</p>}
 
                             <form>
                                 <label >Pais</label>
-                                <select  value={userData.country} required onChange={handleChange} name="country">
+                                <select value={userData.country} required onChange={handleChange} name="country">
                                     <option value="Afganistán">Afganistán</option>
                                     <option value="Albania">Albania</option>
                                     <option value="Alemania">Alemania</option>
@@ -339,13 +310,13 @@ function CheckoutForm(props) {
                             <label > Nombre en tarjeta </label>
                             <input
                                 type="text "
-                                value={paymentData.targetName}
+                                value={userData.targetName}
                                 name="targetName"
                                 required onChange={handleChange} />
                             <label > Numero de tarjeta </label>
                             <input
                                 type="number"
-                                value={paymentData.numberCard}
+                                value={userData.numberCard}
                                 name="numberCard"
                                 required onChange={handleChange} />
                             <div className='row'>
@@ -353,7 +324,7 @@ function CheckoutForm(props) {
                                     <label > Fecha de vencimiento </label>
                                     <input
                                         type="number"
-                                        value={paymentData.expDate}
+                                        value={userData.expDate}
                                         name="expDate"
                                         required onChange={handleChange} />
                                 </div>
@@ -361,7 +332,7 @@ function CheckoutForm(props) {
                                     <label > CVV </label>
                                     <input
                                         type="number"
-                                        value={paymentData.cvv}
+                                        value={userData.cvv}
                                         name="cvv"
                                         required onChange={handleChange} />
                                 </div>
@@ -371,14 +342,14 @@ function CheckoutForm(props) {
                         </div>
                     </div>
                     <div className='btn-confirm-container'>
-                        <button className={totalPrice() < 1 || userData.fullName === '' ? 'disabled btn-confirm' : 'btn-confirm '}  disabled={totalPrice() < 1 || userData.fullName=== '' && true } onClick={() => mostrarAlerta()}>Continuar</button>
+                        <button className={Object.keys(errors).length > 0 || userData.fullName === "" ? 'disabled btn-confirm' :  'btn-confirm '} disabled={Object.keys(errors).length > 0 || userData.fullName === "" && true} onClick={() => mostrarAlerta()}>Continuar</button>
                     </div>
 
                 </div>
             </div>
             <div className='purchase-summary-container'>
                 <div className='purchase-summary'>
-                    <h3 style={{ 'borderBottom': 'solid 1px #000' }}> Articulos en carrito </h3>
+                    <h3 style={{ 'buserBottom': 'solid 1px #000' }}> Articulos en carrito </h3>
                     <ul>
                         {cart.map((prod) => <li className='purchase-detail' style={{ listStyle: 'none' }} key={prod.id}>
                             <div className='detail'>
@@ -386,16 +357,16 @@ function CheckoutForm(props) {
                                 <p>Cantidad:{prod.quantity}</p>
                             </div>
                             <div className='subtotal-detail'>
-                                <p>{prod.price}</p>
+                                <p>{new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'USD' }).format(prod.price.toFixed(2))}</p>
                             </div>
                         </li>)}
                     </ul>
-                    <div style={{borderTop: totalPrice() < 1 ? 'none':'solid 2px #6e6e6e'}} className='total-detail' >
-                        <div>{totalPrice() < 1 ?
+                    <div style={{ buserTop: totalPrice(cart) < 1 ? 'none' : 'solid 2px #6e6e6e' }} className='total-detail' >
+                        <div>{totalPrice(cart) < 1 ?
                             <div style={{ textAlign: 'center' }}>
                                 <p>No hay articulos cargados </p> <Link to='/'> <button className='back-to-commerce-btn'>Regresar a la tienda</button></Link>
                             </div>
-                            : <p>Total: {totalPrice()}</p>}
+                            : <p>Total: {totalPrice(cart)}</p>}
 
                         </div>
                     </div>
@@ -404,6 +375,7 @@ function CheckoutForm(props) {
             </div>
         </div>
     )
+
 }
 
 

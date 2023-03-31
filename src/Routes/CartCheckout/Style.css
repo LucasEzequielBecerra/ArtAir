@@ -13,6 +13,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    min-height: 850px;
 }
 
 .container-title{
@@ -60,6 +61,12 @@ select{
     border: 1px solid #ccc;
     border-radius: 3px;
 } 
+
+.errors-msg{
+    color: red;
+    font-size: 12px;
+    font-weight: bold;
+}
 
 .exp-cvv{
     width: 50%;

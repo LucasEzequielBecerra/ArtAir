@@ -67,9 +67,6 @@ export async function getSingleProductFromDataBase(idItem) {
 
 export async function createOrder(orderData) {
     const collectionRef = collection(db, "orders");
-
-    console.log(orderData);
-
     const response = await addDoc(collectionRef, orderData);
     console.log("Orden creada correctamente", response.id);
 
