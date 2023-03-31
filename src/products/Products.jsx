@@ -45,8 +45,8 @@ export const products = [
         img: 'https://www.artisticarubens.com.ar/media/catalog/product/cache/3773871f859e2c7a76ff148e76c1b485/s/e/set-acuarela-dalerrowney-aquafine-x48_1.jpg',
         category: 'Acuarelas',
         stock: 2,
-        new:true,
-        offer:false,
+        new:false,
+        offer:true,
 
 
     },

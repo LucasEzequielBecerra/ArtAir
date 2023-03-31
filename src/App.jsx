@@ -24,13 +24,10 @@ function App() {
 
       <div >
         <CartContextProvider>
-
           <BrowserRouter>
-
             <BasicExample />
             <Routes>
 
-              <Route path='/checkout' element={<CheckoutCart />} />
               <Route path='/' element={<Home />} />
               <Route path='/new' element={<Section sectionName='Novedades' />} />
               <Route path='/offer' element={<Section sectionName='Ofertas' />} />
@@ -38,9 +35,10 @@ function App() {
               <Route path='/product/:idProduct' element={<ItemDetailContainer />} />
               <Route path='/category/:idCategory' element={<ItemListContainer />} />
               <Route path='/cartView' element={<CartContainer />} />
-
+              <Route path='/checkout' element={<CheckoutCart />} />
 
               <Route path="*" element={<NotFound />} />
+
             </Routes>
             <Footer />
           </BrowserRouter>
