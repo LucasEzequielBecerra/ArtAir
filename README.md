@@ -2,6 +2,8 @@
 
 Hola, soy Lucas Ramos, este es mi proyecto creado para el curso de React JS de Coderhouse. Hice una tienda virtual funcional de venta de articulos de arte. Aplique todo lo aprendido en el curso y conocimientos adquiridos de manera individual para siempre intentar mejorar mi proyecto. 
 
+[Deploy](https://art-air.vercel.app/)
+
 
 
 ## Construido con
@@ -37,7 +39,7 @@ $ npm run dev
 
 ## Componentes en proyecto
 
-SmartyPants converts ASCII punctuation characters into "smart" typographic punctuation HTML entities. For example:
+
 
 |Componentes| Descripcion  |
 |--|--|
