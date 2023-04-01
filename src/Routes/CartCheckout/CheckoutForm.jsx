@@ -321,7 +321,7 @@ function CheckoutForm(props) {
                                 required onChange={handleChange} />
                             <div className='row'>
                                 <div className='exp-cvv'>
-                                    <label > Fecha de vencimiento </label>
+                                    <label > Vencimiento </label>
                                     <input
                                         type="number"
                                         value={userData.expDate}

@@ -107,7 +107,7 @@ font-size: 20px;
 
 .purchase-summary ul{
     width: 100%;
-    padding-left: 8px;
+    padding:10px;
     max-height: 300px;
     overflow: auto;
     margin-bottom: 0;
@@ -178,4 +178,17 @@ margin-left: 20px;
     margin-top: 5px;
 }
 
-
+@media (max-width: 990px){
+.container-form-checkout{
+    flex-direction: column;
+    align-items: center;
+}
+.container-user-data{
+    min-height: auto;
+    margin-bottom: 60px;
+}
+.purchase-summary-container{
+    width: auto;
+    margin-bottom: 80px;
+}
+}

@@ -26,6 +26,7 @@ function App() {
         <CartContextProvider>
           <BrowserRouter>
             <BasicExample />
+              <main>
             <Routes>
 
               <Route path='/' element={<Home />} />
@@ -40,6 +41,7 @@ function App() {
               <Route path="*" element={<NotFound />} />
 
             </Routes>
+              </main>
             <Footer />
           </BrowserRouter>
         </CartContextProvider>

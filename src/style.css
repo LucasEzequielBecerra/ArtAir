@@ -16,16 +16,4 @@
 
 }
 
-/*  // async function leerDatos() {
-    //     try {
-    //         let respuesta = await obtenerProductos()
-    //         setProductos(respuesta)
-    //     }
-    //     catch (error) {
-    //         alert(error)
-    //     }
-    //     finally {
-    //         setLoading(false)
-    //     }
-    // }
- */
+

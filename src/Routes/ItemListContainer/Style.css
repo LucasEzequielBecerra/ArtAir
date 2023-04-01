@@ -31,6 +31,8 @@
     background-color: #f2f2f2;
     margin-bottom: 80px;
     transition:  all 0.3s;
+    padding: 15px;
+    border-radius: 10px;
 }
 
 .card:hover{
