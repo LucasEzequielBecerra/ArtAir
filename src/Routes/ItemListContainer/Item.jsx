@@ -8,7 +8,7 @@ const Item = ({ prod }) => {
         <>
 
 
-            <div className='card col-lg-2 col-4 d-flex '>
+            <div className='card col-lg-2 col-md-4 col-sm-12 d-flex '>
                 <Link to={`/product/${prod.id}`}>
                     <div className='container-img'>
                         <img src={prod.img} alt={prod.title} className='img-prod img-fluid' />

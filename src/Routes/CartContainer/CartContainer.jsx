@@ -34,10 +34,10 @@ const CartContainer = () => {
                     <h3 className='cart-title'>Carrito</h3>
                     <div className='row head-container'>
 
-                        <div className='product-head col-8  '>Producto</div>
-                        <div className='price-head col-1'>Precio</div>
-                        <div className='quantity-head col-2'>Cantidad</div>
-                        <div className='subtotal-head col-1'>Subtotal</div>
+                        <div className='product-head col-lg-8 col-12  '>Producto</div>
+                        <div className='price-head col-1 d-none d-lg-flex'>Precio</div>
+                        <div className='quantity-head col-1 d-none d-lg-flex'>Cantidad</div>
+                        <div className='subtotal-head col-1 d-none d-lg-flex'>Subtotal</div>
                     </div>
 
 

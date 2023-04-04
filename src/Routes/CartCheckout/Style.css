@@ -188,7 +188,10 @@ margin-left: 20px;
     margin-bottom: 60px;
 }
 .purchase-summary-container{
-    width: auto;
+    width: 80%;
     margin-bottom: 80px;
+}
+.container-data{
+    width: 100% ;
 }
 }

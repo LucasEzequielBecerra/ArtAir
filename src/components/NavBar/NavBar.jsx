@@ -9,14 +9,14 @@ import { Link } from 'react-router-dom';
 function BasicExample() {
     return (
         <nav className="navbar navbar-expand-lg  d-flex flex-column header">
-            <div className="container-fluid d-flex justify-content-around nav-top">
+            <div className="container-fluid d-flex  nav-top">
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <Link to="/" className="navbar-brand" href=''><img src='https://dewey.tailorbrands.com/production/brand_version_mockup_image/294/8173245294_560c45c2-21db-48fe-a853-e0118098f6b4.png?cb=1677792952' className='img-logo' /></Link>
-                <div className='d-flex'>
+                <div className='form-search-container'>
                     <form className="d-flex" role="search">
-                        <input className="form-control me-2 d-none  d-lg-flex" type="search" placeholder="Buscar" aria-label="Search" />
+                        <input className="form-control me-2   d-lg-flex" type="search" placeholder="Buscar" aria-label="Search" />
                         <button className="btn btn-outline-success me-2" type="submit"><BsSearch /></button>
                     </form>
                     <CartWidget />
@@ -50,7 +50,7 @@ function BasicExample() {
                                 TECNICAS
                             </a>
                             <ul className="dropdown-menu">
-                                <li><Link to= '/category/Acuarelas'className="dropdown-item">Acuarela</Link></li>
+                                <li><Link to='/category/Acuarelas' className="dropdown-item">Acuarela</Link></li>
                                 <li><Link to='/category/Oleos' className="dropdown-item">Oleo</Link></li>
                                 <li><Link to='/category/Acrilicos' className="dropdown-item">Acrilico</Link></li>
                             </ul>
@@ -72,6 +72,17 @@ function BasicExample() {
                                 <li><a className="dropdown-item">Newton</a></li>
                             </ul>
                         </li>
+                        <div className='form-search'>
+
+                            <form className="d-flex search-bar" role="search">
+                                <input className="form-control input-search me-2 d-lg-flex" type="search" placeholder="Buscar" aria-label="Search" />
+                                <button className="btn btn-outline-success me-2" type="submit"><BsSearch /></button>
+                            </form>
+                            <div className='cart-widget-bot'>
+
+                            <CartWidget />
+                            </div>
+                        </div>
 
                     </ul>
 

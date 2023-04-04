@@ -4,9 +4,42 @@
     
 }
 
-
 .container-cart.btn.btn-outline-success.me-2.cart {
     min-height: 39px;
+}
+
+.search-bar{
+justify-content: flex-end;
+}
+
+.cart-widget-bot{
+    display: flex;
+    justify-content:end ;
+    margin-top:10px ;
+}
+
+.input-search{
+    width: auto;
+}
+
+.form-search-container{
+    display: flex;
+}
+
+@media (min-width:992px ){
+    .form-search{
+        display: none;
+    }
+    .nav-top{
+        justify-content: space-around !important
+    }
+}
+
+@media (max-width:992px){
+    .form-search-container{
+        display: none
+    }
+
 }
 
 
