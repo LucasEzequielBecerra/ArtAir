@@ -10,7 +10,7 @@ const Footer = () => {
     return (
         <footer className='footer-container'>
             <div className='footer'>
-                <div className='footer-logo'><Link to="/" className="navbar-brand" href=''><img src='https://dewey.tailorbrands.com/production/brand_version_mockup_image/294/8173245294_560c45c2-21db-48fe-a853-e0118098f6b4.png?cb=1677792952' className='img-logo-link' /></Link></div>
+                <div className='footer-logo'><Link to="/" className="navbar-brand" href=''><img src='https://dewey.tailorbrands.com/production/brand_version_mockup_image/294/8173245294_560c45c2-21db-48fe-a853-e0118098f6b4.png?cb=1677792952' className='img-logo-link img-fluid' /></Link></div>
                 <div className='footer-text'> <p>Derechos de autor © 2023 - Todos los derechos reservados</p></div>
                 <div className='footer-logos-social'>
                     <p>Seguinos!!</p>

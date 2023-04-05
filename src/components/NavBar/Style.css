@@ -4,7 +4,7 @@
     
 }
 
-.container-cart.btn.btn-outline-success.me-2.cart {
+.container-cart.btn.btn-outline-success.cart {
     min-height: 39px;
 }
 
@@ -38,6 +38,10 @@ justify-content: flex-end;
 @media (max-width:992px){
     .form-search-container{
         display: none
+    }
+    .form-search{
+        display: flex;
+        justify-content: end;
     }
 
 }

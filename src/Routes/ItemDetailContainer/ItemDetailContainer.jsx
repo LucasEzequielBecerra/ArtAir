@@ -19,6 +19,10 @@ const ItemDetailContainer = ({ }) => {
     const params = useParams();
     const idProduct = params.idProduct;
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
+
     const alertBuy = (count) => {
         Swal.fire({
             icon: 'success',
@@ -58,7 +62,7 @@ const ItemDetailContainer = ({ }) => {
 
         setIsInCart(true)
         addItem(product, count)
-        
+
         alertBuy(count)
     }
 

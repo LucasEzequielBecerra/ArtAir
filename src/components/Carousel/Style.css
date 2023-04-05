@@ -1,0 +1,19 @@
+/* @media screen (max-width: 768) {
+    
+} */
+.img-carousel{
+max-width: 100% ;
+}
+
+.hidden-lg{
+    display: none;
+}
+
+@media (max-width: 768px){
+    .hidden-lg{
+        display: block;
+    }
+    .hidden-xs{
+        display: none;
+    }
+}

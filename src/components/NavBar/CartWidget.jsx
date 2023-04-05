@@ -16,7 +16,7 @@ const CartWidget = () => {
     return (
         <Link to='/cartView'>
 
-            <div className="container-cart btn btn-outline-success me-2 cart"><i className="cart-icon"><FaShoppingCart /> </i>
+            <div className="container-cart btn btn-outline-success cart"><i className="cart-icon"><FaShoppingCart /> </i>
                 {cartCount !== 0 && <p className="cart-number">{cartCount}</p>}
             </div>
         </Link>

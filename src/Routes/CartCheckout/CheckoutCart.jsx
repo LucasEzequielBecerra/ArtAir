@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { createOrder } from '../../services/firestore'
 import { useNavigate } from 'react-router'
 import CheckoutForm from './CheckoutForm'
 
 
 function CheckoutCart( ) {
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
+
     const navigateTo = useNavigate()
 
     async function handleCheckout(userData, cart, totalPrice) {

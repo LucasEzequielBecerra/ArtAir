@@ -15,8 +15,8 @@ import CheckoutCart from './Routes/CartCheckout/CheckoutCart';
 import { exportDataWithBatch } from './services/firestore';
 
 
-function App() {
 
+function App() {
 
 
   return (

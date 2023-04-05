@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import './Style.css'
 import cartContext from '../../context/cartContext'
 import { Link } from 'react-router-dom'
@@ -6,6 +6,9 @@ import { Link } from 'react-router-dom'
 
 const Cart = ({ prod, clearCart, removeItem }) => {
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
 
 
     return (

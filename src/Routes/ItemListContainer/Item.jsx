@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { BsCartCheckFill } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 import './Style.css'
 
 const Item = ({ prod }) => {
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
+
     return (
         <>
 
