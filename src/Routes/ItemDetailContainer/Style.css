@@ -39,6 +39,16 @@
 .container-add{
     align-items: center;
 }
+.container-img{
+    display: flex;
+    justify-content: center;
+}
+picture{
+    width: 70%;
+}
+.price{
+    padding-left: 20px;
+}
 
 }
 
