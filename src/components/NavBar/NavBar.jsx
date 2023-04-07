@@ -1,12 +1,50 @@
 
 
+import { useEffect, useState } from 'react';
+import { getProductsFromDataBase } from '../../services/firestore';
 import CartWidget from './CartWidget';
 import './Style.css';
 import { BsSearch } from "react-icons/bs";
 import { Link } from 'react-router-dom';
 
 
+
+
+
 function BasicExample() {
+
+    const [products, setProducts] = useState([])
+    const [search, setSearch] = useState('')
+    const [searchResults, setSearchResults] = useState([])
+
+    async function leerDatos() {
+        const prod = await getProductsFromDataBase()
+        setProducts(prod)
+    }
+    useEffect(() => {
+        leerDatos()
+    },[])
+
+    const handleChange = (e) => {
+        setSearch(e.target.value)
+        filter(e.target.value)
+        console.log(searchResults)
+        
+    }
+
+    const filter = (searchTerm) => {
+        let searchRes = products.filter((prod) => {
+            if (prod.title.toString().toLowerCase().trim().includes(searchTerm.toLowerCase())
+                || prod.description.toString().toLowerCase().trim().includes(searchTerm.toLowerCase())) {
+                return prod
+            }
+        })
+        setSearchResults(searchRes)
+    }
+
+    console.log(search)
+
+
     return (
         <nav className="navbar navbar-expand-lg  d-flex flex-column header">
             <div className="container-fluid d-flex  nav-top">
@@ -16,8 +54,25 @@ function BasicExample() {
                 <Link to="/" className="navbar-brand" href=''><img src='https://dewey.tailorbrands.com/production/brand_version_mockup_image/294/8173245294_560c45c2-21db-48fe-a853-e0118098f6b4.png?cb=1677792952' className='img-logo' /></Link>
                 <div className='form-search-container'>
                     <form className="d-flex" role="search">
-                        <input className="form-control me-2   d-lg-flex" type="search" placeholder="Buscar" aria-label="Search" />
-                        <button className="btn btn-outline-success me-2" type="submit"><BsSearch /></button>
+                        <div className='search-container me-2'>
+                            <input className="form-control    d-lg-flex" type="search" placeholder="Buscar" aria-label="Search" onChange={handleChange}
+                                value={search} />
+                            <div className={search === '' ? 'search-results-container-none' : 'search-results-container'}>
+                                <ul className='search-list'>
+                                    
+                                {searchResults.map((prod) => {
+                                    return (
+                                            <li className='search-item' key={prod.id}>
+                                                <Link to={`/product/${prod.id}`}>
+                                                    {prod.title}
+                                                </Link>
+                                            </li>
+                                    )
+                                })}
+                                </ul>
+                            </div>
+                        </div>
+                        <button className="btn btn-outline-success me-2" type="button"><BsSearch /></button>
                     </form>
                     <CartWidget />
                 </div>
@@ -80,7 +135,7 @@ function BasicExample() {
                             </form>
                             <div className='cart-widget-bot'>
 
-                            <CartWidget />
+                                <CartWidget />
                             </div>
                         </div>
 

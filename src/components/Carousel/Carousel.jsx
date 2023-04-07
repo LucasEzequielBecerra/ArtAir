@@ -15,7 +15,7 @@ const Carousel = () => {
     return (
         <>
             <Swiper
- className='hidden-xs'
+                className='hidden-xs'
                 modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
                 spaceBetween={50}
                 slidesPerView={1}

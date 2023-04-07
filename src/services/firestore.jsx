@@ -4,13 +4,14 @@ import { getFirestore } from "firebase/firestore";
 import { products } from "../products/Products";
 
 const firebaseConfig = {
-    apiKey:"AIzaSyDPEeXMx3KhdZWrVFEOcAgQslx4Os4oJAU",
-    authDomain: "artair-5c520.firebaseapp.com",
-    projectId: "artair-5c520",
-    storageBucket: "artair-5c520.appspot.com",
-    messagingSenderId: "762214926901",
-    appId: "1:762214926901:web:e09d27ae062bdff2f13f7c"
-};
+    apiKey: "AIzaSyCWhfGGP1zrch5BK5GoAjrpVrpXGIJuG-k",
+    authDomain: "testdb-788af.firebaseapp.com",
+    projectId: "testdb-788af",
+    storageBucket: "testdb-788af.appspot.com",
+    messagingSenderId: "1082076510206",
+    appId: "1:1082076510206:web:cddec8bc5b59bbd52af2af",
+    measurementId: "G-CPYJSCQ84H"
+    };
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);

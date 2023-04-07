@@ -21,7 +21,7 @@ const ItemDetailContainer = ({ }) => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, [])
+    }, [onAddToCart])
 
     const alertBuy = (count) => {
         Swal.fire({
