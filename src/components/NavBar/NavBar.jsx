@@ -5,7 +5,7 @@ import { getProductsFromDataBase } from '../../services/firestore';
 import CartWidget from './CartWidget';
 import './Style.css';
 import { BsSearch } from "react-icons/bs";
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 
 
@@ -19,7 +19,6 @@ function BasicExample() {
 
     const location = useLocation();
     const idPage = location.pathname;
-    console.log(idPage)
 
     async function leerDatos() {
         const prod = await getProductsFromDataBase()
@@ -34,9 +33,6 @@ function BasicExample() {
         setSearch(e.target.value)
         filter(e.target.value)        
     }
-
-
-    console.log(search)
 
     function handleKeyDown(evento) {
         if (evento.key === "Backspace" && search.length === 1 ) {

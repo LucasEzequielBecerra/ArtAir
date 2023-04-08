@@ -77,12 +77,10 @@ export async function createOrder(orderData) {
 export async function exportDataWithBatch() {
     const batch = writeBatch(db);
     const collectionRef = collection(db, "products");
-
     for (let item of products) {
         const newDoc = doc(collectionRef);
         batch.set(newDoc, item);
     }
-
     const resp = await batch.commit();
     console.log(resp);
 }  

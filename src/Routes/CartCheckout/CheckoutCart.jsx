@@ -19,7 +19,7 @@ function CheckoutCart( ) {
             total: totalPrice,
             timestamp: new Date(),
         }
-        console.log(orderData)
+
         const id = await createOrder(orderData)
         
 

@@ -19,7 +19,7 @@ const ItemDetailContainer = ({ }) => {
 
     const params = useParams();
     const idProduct = params.idProduct;
-    console.log(idProduct)
+
 
     useEffect(() => {
         window.scrollTo(0, 0);
