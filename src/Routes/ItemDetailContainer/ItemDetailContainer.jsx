@@ -9,6 +9,7 @@ import { getSingleProductFromDataBase } from '../../services/firestore'
 import Swal from 'sweetalert2'
 
 
+
 const ItemDetailContainer = ({ }) => {
     const [product, setProduct] = useState([])
     const [loading, setLoading] = useState(true)
@@ -18,6 +19,7 @@ const ItemDetailContainer = ({ }) => {
 
     const params = useParams();
     const idProduct = params.idProduct;
+    console.log(idProduct)
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -54,7 +56,7 @@ const ItemDetailContainer = ({ }) => {
 
     useEffect(() => {
         elementFinded()
-    }, [])
+    }, [idProduct])
 
 
 

@@ -13,6 +13,8 @@ import Home from './Routes/Home/Home';
 import Section from './Routes/Section/Section'
 import CheckoutCart from './Routes/CartCheckout/CheckoutCart';
 import { exportDataWithBatch } from './services/firestore';
+import AboutUs from './Routes/Section/AboutUs';
+import FAQ from './Routes/Section/FAQ';
 
 
 
@@ -30,6 +32,8 @@ function App() {
             <Routes>
 
               <Route path='/' element={<Home />} />
+              <Route path='/aboutus' element={<AboutUs />} />
+              <Route path='/faq' element={<FAQ />} />
               <Route path='/new' element={<Section sectionName='Novedades' />} />
               <Route path='/offer' element={<Section sectionName='Ofertas' />} />
               <Route path='/products' element={<ItemListContainer />} />

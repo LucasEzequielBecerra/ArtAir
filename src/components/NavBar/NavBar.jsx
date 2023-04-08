@@ -5,7 +5,7 @@ import { getProductsFromDataBase } from '../../services/firestore';
 import CartWidget from './CartWidget';
 import './Style.css';
 import { BsSearch } from "react-icons/bs";
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 
 
 
@@ -14,22 +14,34 @@ import { Link } from 'react-router-dom';
 function BasicExample() {
 
     const [products, setProducts] = useState([])
-    const [search, setSearch] = useState('')
+    const [search, setSearch] = useState("")
     const [searchResults, setSearchResults] = useState([])
+
+    const location = useLocation();
+    const idPage = location.pathname;
+    console.log(idPage)
 
     async function leerDatos() {
         const prod = await getProductsFromDataBase()
         setProducts(prod)
     }
     useEffect(() => {
+        setSearch("")
         leerDatos()
-    },[])
+    },[idPage])
 
     const handleChange = (e) => {
         setSearch(e.target.value)
-        filter(e.target.value)
-        console.log(searchResults)
-        
+        filter(e.target.value)        
+    }
+
+
+    console.log(search)
+
+    function handleKeyDown(evento) {
+        if (evento.key === "Backspace" && search.length === 1 ) {
+        setSearch("");
+        }
     }
 
     const filter = (searchTerm) => {
@@ -56,14 +68,14 @@ function BasicExample() {
                     <form className="d-flex" role="search">
                         <div className='search-container me-2'>
                             <input className="form-control    d-lg-flex" type="search" placeholder="Buscar" aria-label="Search" onChange={handleChange}
-                                value={search} />
+                                value={search} onKeyDown={handleKeyDown} />
                             <div className={search === '' ? 'search-results-container-none' : 'search-results-container'}>
                                 <ul className='search-list'>
                                     
                                 {searchResults.map((prod) => {
                                     return (
                                             <li className='search-item' key={prod.id}>
-                                                <Link to={`/product/${prod.id}`}>
+                                                <Link  to={`/product/${prod.id}`}>
                                                     {prod.title}
                                                 </Link>
                                             </li>
@@ -72,7 +84,7 @@ function BasicExample() {
                                 </ul>
                             </div>
                         </div>
-                        <button className="btn btn-outline-success me-2" type="button"><BsSearch /></button>
+                        <Link to={searchResults.length > 0 && `/product/${searchResults[0].id}`} className="btn btn-outline-success me-2" type="button"><BsSearch /></Link>
                     </form>
                     <CartWidget />
                 </div>
@@ -97,9 +109,6 @@ function BasicExample() {
                                 <li><Link to='/category/Lapices' className="dropdown-item">Lapices</Link></li>
                             </ul>
                         </li>
-
-
-
                         <li className="nav-item dropdown">
                             <a className="nav-link dropdown-toggle link-item" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 TECNICAS
@@ -116,22 +125,34 @@ function BasicExample() {
                         <li className="nav-item ">
                             <Link to='/offer' className="nav-link link-item">OFERTAS</Link>
                         </li>
-                        <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle link-item" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                MARCAS
-                            </a>
-                            <ul className="dropdown-menu">
-                                <li><a className="dropdown-item">Eureka</a></li>
-                                <li><a className="dropdown-item">Hutton</a></li>
-
-                                <li><a className="dropdown-item">Newton</a></li>
-                            </ul>
+                        <li className="nav-item ">
+                            <Link to='/aboutus' className="nav-link link-item">SOBRE NOSOTROS</Link>
                         </li>
-                        <div className='form-search'>
+                        <li className="nav-item ">
+                            <Link to='/faq' className="nav-link link-item">PREGUNTAS FRECUENTES</Link>
+                        </li>
 
+                        <div className='form-search'>
                             <form className="d-flex search-bar" role="search">
-                                <input className="form-control input-search me-2 d-lg-flex" type="search" placeholder="Buscar" aria-label="Search" />
-                                <button className="btn btn-outline-success me-2" type="submit"><BsSearch /></button>
+                                <div className='search-container me-2'>
+                                <input className="form-control input-search me-2 d-lg-flex" type="search" onChange={handleChange}
+                                value={search} placeholder="Buscar" aria-label="Search" />
+                                <div className={search === "" ? 'search-results-container-none' : 'search-results-container'}>
+                                <ul className='search-list'>
+                                    
+                                {searchResults.map((prod) => {
+                                    return (
+                                            <li className='search-item' key={prod.id}>
+                                                <Link onClick={()=> setSearch("")} to={`/product/${prod.id}`}>
+                                                    {prod.title}
+                                                </Link>
+                                            </li>
+                                    )
+                                })}
+                                </ul>
+                            </div>
+                                </div>
+                                <Link to={searchResults.length > 0 && `/product/${searchResults[0].id}`} className="btn btn-outline-success me-2" type="submit"><BsSearch /></Link>
                             </form>
                             <div className='cart-widget-bot'>
 
