@@ -72,3 +72,4 @@ Item|Estructura de las cards que se muestran en ItemListContainer.|
 - Ract Icons: Iconos.
 - @uiball/loaders: Implemento en ***Loader*** para espera de carga.
 - Boostrap: Maquetacion y estilacion en ciertas partes del proyecto.
+- Material Ui: Maquetacion y uso de componentes prediseñados para estilizar.
