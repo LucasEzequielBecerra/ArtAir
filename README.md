@@ -12,7 +12,7 @@ Hola, soy Lucas Ramos, este es mi proyecto creado para el curso de React JS de C
  - Html
  - Css
  - React Js
- - Boostrap
+ - Bootsrap
  - React Router
  - Context
  - Firebase / Firestore Database
@@ -43,6 +43,7 @@ $ npm run dev
 
 |Componentes| Descripcion  |
 |--|--|
+|AboutUs|Componente que contiene informacion sobre la pagina en si, informacion inventada|
 |CkeckoutCart|Componente donde se renderiza el formulario de compra y se ejecuta la funcion de la base de datos.|
 |CheckoutForm|Formulario de validacion para finalizar la compra, crear la orden y almacenarla en la base de datos.|
 |Carousel |Este componente trae un carrusel de imagenes y se usa en el componente ***Home***. Se implementa uso de la libreria Swiper.js.
@@ -52,6 +53,7 @@ Counter| Este componente es un contador que reasigna el valor de la propiedad *q
 |cartContext|Archivo con funciones logicas para usar en el carrito y el formulario de compra. Contiene tambien el proveedor.|
 |CartWidget|Componente que contiene el item del cart widget y el contador de cantidad de items .|
 |Description|Archivo donde se encuentra la descripcion de "Novedades" y "Ofertas" .|
+|FAQ|Componente con preguntas frecuentes y sus respectivas respuestas|
 |Footer|Pie de pagina con informacion de redes.|
 |firestore|Archivo con configuracion y funciones a exportar de la base de datos.|
 |Home|Componente donde se renderiza el Carousel y las secciones de la pagina web "Novedades" y "Ofertas".|
@@ -66,9 +68,11 @@ Item|Estructura de las cards que se muestran en ItemListContainer.|
 |Section| Componente que renderiza condicionalmente el contenido visto en ***Home*** segun la url|
 
 
+
 ## Dependencias utilizadas
 - Swiper.js: Implemento de libreria en ***Carousel***, utilizada en componente ***Home***.
 - SweetAlert: Alertas en agregado de items al carrito y en el flujo de compra y en errores de firebase.
 - Ract Icons: Iconos.
 - @uiball/loaders: Implemento en ***Loader*** para espera de carga.
-- Boostrap: Maquetacion y estilacion en ciertas partes del proyecto.
+- Bootsrap: Maquetacion y estilacion en ciertas partes del proyecto.
+- Material Ui: Maquetacion y uso de componentes prediseñados para estilizar.
