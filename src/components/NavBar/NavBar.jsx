@@ -6,7 +6,7 @@ import CartWidget from './CartWidget';
 import './Style.css';
 import { BsSearch } from "react-icons/bs";
 import { Link, useLocation } from 'react-router-dom';
-
+import '../../../public/logo-nav-foot.png'
 
 
 
@@ -52,14 +52,13 @@ function BasicExample() {
 
     console.log(search)
 
-
     return (
         <nav className="navbar navbar-expand-lg  d-flex flex-column header">
             <div className="container-fluid d-flex  nav-top">
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <Link to="/" className="navbar-brand" href=''><img src='/../../../public/logo-nav-foot.png' className='img-logo' /></Link>
+                <Link to="/" className="navbar-brand" href=''><img src='../../../public/logo-nav-foot.png' className='img-logo' /></Link>
                 <div className='form-search-container'>
                     <form className="d-flex" role="search">
                         <div className='search-container me-2'>
