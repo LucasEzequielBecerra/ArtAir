@@ -58,7 +58,7 @@ function BasicExample() {
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <Link to="/" className="navbar-brand" href=''><img src='../../../public/logo-nav-foot.png' className='img-logo' /></Link>
+                <Link to="/" className="navbar-brand" href=''><img src='./public/logo-nav-foot.png' className='img-logo' /></Link>
                 <div className='form-search-container'>
                     <form className="d-flex" role="search">
                         <div className='search-container me-2'>
