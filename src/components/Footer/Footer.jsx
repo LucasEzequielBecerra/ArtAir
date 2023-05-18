@@ -10,7 +10,7 @@ const Footer = () => {
     return (
         <footer className='footer-container'>
             <div className='footer'>
-                <div className='footer-logo'><Link to="/" className="navbar-brand" href=''><img src='../../../public/logo.ico' className='img-logo-link img-fluid' /></Link></div>
+                <div className='footer-logo'><Link to="/" className="navbar-brand" href=''><img src='/../../../public/logo-nav-foot.png' className='img-logo-link img-fluid' /></Link></div>
                 <div className='footer-text'> <p>Derechos de autor © 2023 - Todos los derechos reservados</p></div>
                 <div className='footer-logos-social'>
                     <p>Seguinos!!</p>
