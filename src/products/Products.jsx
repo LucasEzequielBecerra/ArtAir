@@ -125,8 +125,6 @@ export const products = [
         stock: 120,
         new: true,
         offer: true,
-
-
     }
     
 
